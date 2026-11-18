@@ -28,6 +28,16 @@ def openssl(*arguments):
                    stderr=subprocess.DEVNULL)
 
 
+def gateway_authorization_header(token):
+    """HTTP header line for firmware setExtraHeaders. The client appends the CRLF."""
+    return 'Authorization: Bearer ' + token.strip()
+
+
+def gateway_authorization_declaration(token):
+    """C declaration written to firmware/src/local_pairing.h."""
+    return 'constexpr char gatewayAuthorization[] = ' + json.dumps(gateway_authorization_header(token)) + ';'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--host', required=True, help='Mac LAN IPv4 address or DNS name')
@@ -69,11 +79,10 @@ def main():
         if not (directory/name).exists():
             write(directory/name, secrets.token_urlsafe(length) + '\n')
 
-    auth = 'Bearer ' + (directory/'token').read_text().strip()
     password = (directory/'setup-password').read_text().strip()
     pairing = ['#pragma once',
                f'constexpr char gatewayHost[] = {json.dumps(args.host)};',
-               f'constexpr char gatewayAuthorization[] = {json.dumps(auth)};',
+               gateway_authorization_declaration((directory/'token').read_text()),
                f'constexpr char setupPassword[] = {json.dumps(password)};',
                'constexpr char remoteGatewayHost[] = "";',
                'constexpr uint16_t remoteGatewayPort = 8765;',
