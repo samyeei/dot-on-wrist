@@ -66,7 +66,12 @@ class TextVoice:
         self.recording.clear()
 
     async def synthesize(self, text):
-        voice = 'Tingting' if re.search(r'[\u3400-\u9fff]', text) else 'Samantha'
+        if re.search(r'[\u3041-\u3096\u30a1-\u30fa\uff66-\uff9d]', text):
+            voice = 'Kyoko'
+        elif re.search(r'[\u3400-\u9fff]', text):
+            voice = 'Tingting'
+        else:
+            voice = 'Samantha'
         with tempfile.TemporaryDirectory(prefix='anna-tts-') as directory:
             script = Path(directory) / 'reply.txt'
             audio = Path(directory) / 'reply.wav'

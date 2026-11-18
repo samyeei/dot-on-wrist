@@ -52,8 +52,10 @@ import WatchKit
             UserDefaults.standard.set(String(incoming.id), forKey: receiptKey)
             WKInterfaceDevice.current().play(.notification)
             let utterance = AVSpeechUtterance(string: incoming.text)
-            let chinese = incoming.text.range(of: #"[一-鿿]"#, options: .regularExpression) != nil
-            utterance.voice = AVSpeechSynthesisVoice(language: chinese ? "zh-CN" : "en-US")
+            let japanese = incoming.text.range(of: #"[ぁ-ゖァ-ヺｦ-ﾝ]"#, options: .regularExpression) != nil
+            let chinese = incoming.text.range(of: #"[㐀-鿿]"#, options: .regularExpression) != nil
+            let language = japanese ? "ja-JP" : (chinese ? "zh-CN" : "en-US")
+            utterance.voice = AVSpeechSynthesisVoice(language: language)
             announcement.speak(utterance)
             try await gateway.acknowledge(incoming.id)
             UserDefaults.standard.removeObject(forKey: receiptKey)

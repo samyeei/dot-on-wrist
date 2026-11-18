@@ -20,7 +20,13 @@ Use the Mac's actual LAN IPv4 address, preferably one reserved by your router. P
 2. Choose **Load unpacked** and select `mac/chrome-extension`. Reload the extension if it was already loaded.
 3. Keep the Dot tab open and start the gateway from the repository root with `./scripts/start-gateway.sh`. Leave the terminal running. The extension badge shows **ON** when the target tab is available.
 
-The Mac listens on TCP ports 8765 (M5Stack) and 8767 (Apple Watch). Permit incoming connections on your trusted LAN if prompted. No router port forwarding is needed. Whisper can download its model on the first request.
+The Mac listens on TCP ports 8765 (M5Stack) and 8767 (Apple Watch). Permit incoming connections on your trusted LAN if prompted. No router port forwarding is needed. Download the multilingual Whisper model before your first voice request:
+
+```sh
+.venv/bin/python -c "import whisper; whisper.load_model('base', device='cpu')"
+```
+
+Whisper detects the language of each single recording. For very short recordings, you can start the gateway with `DOT_TRANSCRIPTION_LANGUAGE=ja ./scripts/start-gateway.sh` to explicitly choose Japanese. Use `en` for English or `zh` for Chinese. For local speech playback, install the system voices Samantha, Kyoko, and Tingting as needed.
 
 ## 3. Install on M5Stack StopWatch
 
