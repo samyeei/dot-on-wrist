@@ -54,3 +54,13 @@ English is the default. Build the M5Stack firmware for Simplified Chinese or Jap
 This is an independent community project. The Chrome extension uses the current structure of the Dot page. You need an account with access to the conversation and its voice controls. The Mac must stay online and the tab must stay open. The initial setup targets a trusted local network.
 
 See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
+
+## Community
+
+Scan a code to join the Telegram or WeChat group.
+
+| Telegram | WeChat · 老钟 AI玩 |
+| --- | --- |
+| <img src="media/telegram-qr.jpg" alt="Telegram QR code" width="220"> | <img src="media/wechat-qr.jpg" alt="WeChat QR code" width="300"> |
+
+WeChat QR code valid before November 25, 2026.
