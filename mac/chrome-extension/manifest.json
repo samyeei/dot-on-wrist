@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extension_name__",
+  "version": "1.3.0",
+  "minimum_chrome_version": "106",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2+eKtSAIRHSkaNjs0Tbd5x+IX8xExIInYL+0slSp+5de1WocWPByScSFJew0Rkf22KVX88s/9fgVRzwodnqGSCqxJ6iLXLg3W9ZZX0uOSLQ8gW7QTf4f0aexJNS0r1JOyvnsRqes5Ao8jrIwBnwHDwdZN5l8SlPSrhH6xWy+pC3SH8h0bw5zOKOms7do0DgpwSNaiHpg06tpzjvu5672/5b64/aGtsPXYctqwB3lZqcOTEwkfi/hguVS2Y2MOIztzfpY8KVARdoS1hGUl6BotOFMLAaWPQ3GGhCVtJMh+sWTM/hbS9EXxI88gHDRSAKASl5BZMOqxvn/oTBaoG3yQQIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/dots/*"
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "action": {
+    "default_title": "__MSG_extension_name__"
+  },
+  "description": "__MSG_extension_description__",
+  "default_locale": "en"
+}

@@ -1,0 +1,2 @@
+NSMicrophoneUsageDescription = "Dot の録音と通話にマイクを使用します。";
+NSLocalNetworkUsageDescription = "ローカルネットワーク上の Mac に接続します。";

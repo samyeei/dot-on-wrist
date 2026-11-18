@@ -1,0 +1,32 @@
+{
+  "extension_name": {
+    "message": "Dot on Wrist"
+  },
+  "extension_description": {
+    "message": "Mac 経由で Dot の会話を腕時計に届けます。"
+  },
+  "badge_off": {
+    "message": "OFF"
+  },
+  "badge_idle": {
+    "message": "待機"
+  },
+  "open_tab": {
+    "message": "Chrome で Dot の会話を開いてください。"
+  },
+  "tab_unavailable": {
+    "message": "Dot ページが再読み込みされたか、利用できません。"
+  },
+  "tab_changed": {
+    "message": "Dot タブが変更されました。"
+  },
+  "cannot_dial": {
+    "message": "通話中か、通話ボタンが見つかりません。"
+  },
+  "draft": {
+    "message": "通話を終了し、下書きを消してください。"
+  },
+  "cannot_send": {
+    "message": "送信できませんでした。Dot ページを確認してください。"
+  }
+}

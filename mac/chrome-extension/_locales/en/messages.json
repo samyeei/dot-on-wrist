@@ -1,0 +1,32 @@
+{
+  "extension_name": {
+    "message": "Dot on Wrist"
+  },
+  "extension_description": {
+    "message": "Connect Dot conversations to your watch through your Mac."
+  },
+  "badge_off": {
+    "message": "OFF"
+  },
+  "badge_idle": {
+    "message": "IDLE"
+  },
+  "open_tab": {
+    "message": "Open the Dot conversation in Chrome."
+  },
+  "tab_unavailable": {
+    "message": "The Dot page was reloaded or is unavailable."
+  },
+  "tab_changed": {
+    "message": "The Dot tab changed."
+  },
+  "cannot_dial": {
+    "message": "Dot is in a call or the Call button is unavailable."
+  },
+  "draft": {
+    "message": "End the call and clear any draft before continuing."
+  },
+  "cannot_send": {
+    "message": "The message could not be sent. Check the Dot page."
+  }
+}

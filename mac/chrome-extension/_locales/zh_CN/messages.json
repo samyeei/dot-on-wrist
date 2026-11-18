@@ -1,0 +1,32 @@
+{
+  "extension_name": {
+    "message": "Dot 手表"
+  },
+  "extension_description": {
+    "message": "通过 Mac 将 Dot 对话连接到手表。"
+  },
+  "badge_off": {
+    "message": "断开"
+  },
+  "badge_idle": {
+    "message": "待机"
+  },
+  "open_tab": {
+    "message": "请在 Chrome 打开 Dot 对话标签页"
+  },
+  "tab_unavailable": {
+    "message": "Dot 页面已刷新或暂时无法操作"
+  },
+  "tab_changed": {
+    "message": "Dot 标签页已切换"
+  },
+  "cannot_dial": {
+    "message": "Dot 正在通话或未找到拨号按钮"
+  },
+  "draft": {
+    "message": "请先结束通话，并确认 Dot 聊天框没有草稿"
+  },
+  "cannot_send": {
+    "message": "Dot 聊天框未能发送消息，请检查页面"
+  }
+}

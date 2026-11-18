@@ -1,0 +1,2 @@
+NSMicrophoneUsageDescription = "允许 Dot 录音和通话。";
+NSLocalNetworkUsageDescription = "连接本地 Mac 网关。";

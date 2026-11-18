@@ -1,0 +1,12 @@
+/private/
+/.venv/
+**/.pio/
+**/__pycache__/
+**/xcuserdata/
+**/.DS_Store
+/firmware/src/local_pairing.h
+/watchOS/ANNA/Pairing.json
+*.mobileprovision
+*.p12
+*.key
+*.sqlite3*
