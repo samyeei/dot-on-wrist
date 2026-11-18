@@ -60,3 +60,48 @@ class InboxTest(unittest.TestCase):
             inbox.ack(key, apple_watch=True)
             self.assertIsNone(inbox.pending(apple_watch=True))
             self.assertEqual(inbox.pending()[1], '新消息')
+
+    def test_new_last_message_with_distinct_dom_id_is_queued(self):
+        with tempfile.TemporaryDirectory() as directory:
+            inbox = Inbox(Path(directory))
+            inbox.observe([row('先前消息', key='msg-a')])
+            inbox.observe([row('先前消息', key='msg-a'), row('第一条通知', key='msg-c')])
+            end, text = inbox.pending()
+            self.assertEqual(text, '第一条通知')
+            inbox.ack(end)
+            inbox.observe([row('先前消息', key='msg-a'), row('第二条新消息', key='msg-d')])
+            pending = inbox.pending()
+            self.assertIsNotNone(pending)
+            self.assertEqual(pending[1], '第二条新消息')
+
+    def test_idless_edit_is_not_replayed_after_ack(self):
+        with tempfile.TemporaryDirectory() as directory:
+            inbox = Inbox(Path(directory))
+            inbox.observe([row('旧消息')])
+            inbox.observe([row('旧消息'), row('草稿内容')])
+            end, text = inbox.pending()
+            self.assertEqual(text, '草稿内容')
+            inbox.ack(end)
+            inbox.observe([row('旧消息'), row('修订内容')])
+            self.assertIsNone(inbox.pending())
+
+    def test_unacked_same_id_edit_keeps_the_original_pending_text(self):
+        with tempfile.TemporaryDirectory() as directory:
+            inbox = Inbox(Path(directory))
+            inbox.observe([row('旧消息', key='one')])
+            inbox.observe([row('旧消息', key='one'), row('请稍等', key='two')])
+            self.assertEqual(inbox.pending()[1], '请稍等')
+            inbox.observe([row('旧消息', key='one'), row('完整回复内容', key='two')])
+            self.assertEqual(inbox.pending()[1], '请稍等')
+
+    def test_stable_id_window_shrink_does_not_create_a_notice(self):
+        with tempfile.TemporaryDirectory() as directory:
+            inbox = Inbox(Path(directory))
+            baseline = row('先前消息', key='a')
+            inbox.observe([baseline])
+            inbox.observe([baseline, row('B', key='b'), row('C', key='c')])
+            end, text = inbox.pending()
+            self.assertEqual(text, 'B\n\nC')
+            inbox.ack(end)
+            inbox.observe([baseline, row('B', key='b')])
+            self.assertIsNone(inbox.pending())
