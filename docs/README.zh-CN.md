@@ -6,12 +6,34 @@
 
 在 M5Stack StopWatch 或 Apple Watch 上和 Dot 对话。Mac 网关连接已经登录的 Chrome 对话页面，支持按住说一句、连续通话以及新消息文字和语音提醒。
 
+## M5Stack StopWatch 怎么用
+
+- **左键（黄色）**。按住录一条语音，松手发送。Dot 的回复会显示在屏幕上并朗读。
+- **右键（蓝色）**。按一下开始连续通话，再按一下挂断。
+- **待机收消息**。StopWatch 连着 Mac 且空闲时，Dot 的新消息可唤醒屏幕、显示文字并朗读。
+- **音量、亮度和熄屏**。从屏幕顶部下滑打开设置，拖动滑条调整扬声器音量和屏幕亮度。默认闲置 30 秒自动熄屏。我实测待机大约 4–5 小时，有时更久。续航会随 Wi-Fi 信号、亮度和播报频率变化。
+- **常亮模式**。在设置里打开「常亮」，屏幕持续点亮，动画人物也会放大，适合挂在包上当装饰挂件。
+- **和人物互动**。在待机画面轻点 Dot，它会做出反应。普通显示模式下还可以揉一揉、拖动，或用手指快速甩出去。
+
+## Apple Watch 怎么用
+
+按住 Dot 录音，松手发送。点「通话」开始连续对话，点「挂断」结束。App 打开且空闲时，可以显示并朗读本次打开后收到的 Dot 新消息。
+
+## 直接复制给 Agent
+
+把下面这段复制给能操作你 Mac 的 Agent。
+
+```text
+请在这台 Mac 上帮我安装 Dot on Wrist。项目是 https://github.com/samyeei/dot-on-wrist，先读 docs/INSTALL.md，检查本机环境和已有安装，确认我使用 M5Stack StopWatch、Apple Watch 或两者。从仓库创建 Python 环境并运行配对脚本，我会在隐藏输入框填自己的 Dot 对话地址。加载 Chrome 扩展，启动 Mac 网关并确认扩展显示 ON。M5Stack 先确认型号、串口并备份完整固件，再编译刷写。Apple Watch 用我自己的 Xcode 开发团队签名并装到配对手表。需要我登录、授予系统权限、打开开发者模式或操作设备时再提示我。最后实测一次按住说话、一次连续通话及挂断，告诉我哪些已验证。配对凭据、对话地址、证书私钥、固件备份和已配对的构建只保存在本机。
+```
+
+## 手动安装
+
 1. 在 Mac 上准备 Chrome、Python 3.12 和 BlackHole 2ch。打开你自己的 Dot 对话，用安装脚本在本机生成配对文件。
 2. 打开 Chrome 的扩展页面，开启开发者模式并加载 `mac/chrome-extension`。启动 Mac 网关，保持对话标签页打开。
 3. M5Stack 用 PlatformIO 构建和刷写，首次开机扫码连接 2.4 GHz Wi-Fi。中文构建选择 `m5stack-stopwatch-zh`。
 4. Apple Watch 用 Xcode 打开 `watchOS/ANNA.xcodeproj`，选自己的开发团队和已配对手表，签名后运行。界面跟随系统语言。
 
-M5Stack 按住黄键说话，松手发送，蓝键开始或结束连续通话。Apple Watch 按住 Dot 说话，底部按钮发起通话，中央按钮挂断。两端在连接后收到的新消息可在空闲时显示并朗读。手表和 Mac 需在能互相访问的局域网。
 
 ## 在仓库根目录执行
 
@@ -24,4 +46,4 @@ python3.12 -m venv .venv
 ./scripts/start-gateway.sh
 ```
 
-[完整安装命令与排查](INSTALL.md) · [发给 Agent 的安装指令](AGENT-INSTALL.zh-CN.md)
+[完整安装命令与排查](INSTALL.md)
