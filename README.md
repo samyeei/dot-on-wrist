@@ -38,6 +38,10 @@ Keep conversation URLs, tokens, TLS keys, backups, and paired binaries local.
 
 Hold Dot to record and release to send. Tap **Call** to start a continuous call and **Hang Up** to end it. When the app is open and idle, it can display and read aloud messages received since you opened it.
 
+## Network requirements
+
+On the same local network, the watch connects directly to the Mac’s LAN address. **Away from home, you need a publicly reachable IP address for the Mac gateway** (or a hostname that resolves to it). The Mac must stay online with the ChatGPT Dot tab open. Connecting the watch to a phone hotspot gives it internet access, but the hotspot alone does not make your home Mac reachable. The default installer configures LAN access. For outdoor use, configure the public endpoint and TLS pairing for the device you use.
+
 ## Manual installation
 
 | Component | Source | Installation |

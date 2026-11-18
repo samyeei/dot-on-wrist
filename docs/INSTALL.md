@@ -1,5 +1,9 @@
 # Install Dot on Wrist
 
+## Network access away from home
+
+The walkthrough below pairs the watch for use on your local network. If you want to use it outdoors or from another network, you need an internet-reachable public IP for the Mac gateway, or a hostname pointing to that IP. Configure the public endpoint and TLS pairing for the device before leaving home. Keep the Mac online, keep Chrome open to ChatGPT Dot, and keep the gateway’s authentication and TLS enabled. A phone hotspot alone only gives the watch internet access.
+
 ## 1. Prepare the Mac
 
 Use macOS 14.2 or newer, Chrome, Python 3.12, and FFmpeg on your PATH for Whisper. For Apple Watch, use Xcode 16 or newer with support for the installed watchOS version. Install [BlackHole 2ch](https://existential.audio/blackhole/) for live calls, then set the Dot tab's Chrome microphone to **BlackHole 2ch**. Leave macOS audio output on your usual speakers or headphones. Grant Chrome microphone access and grant the gateway's host application system audio recording access when macOS asks.
