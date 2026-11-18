@@ -5,3 +5,5 @@
 - PlatformIO downloads Arduino-ESP32 and the M5Stack M5Unified and M5GFX libraries under their respective upstream licenses.
 - BlackHole 2ch and Python packages are installed separately under their respective licenses.
 - The original dot-for-M5Stack code retains its MIT notice from niwachipi in [LICENSE](LICENSE).
+
+- The Japanese firmware uses a rasterized Noto Sans JP subset under SIL OFL 1.1. See [Noto Sans JP license](firmware/licenses/NotoSansJP-OFL.txt).

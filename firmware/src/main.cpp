@@ -15,6 +15,9 @@
 
 extern const uint8_t annaMicroHeiBitmap[];
 extern const uint8_t annaSmoothBitmap[];
+#if defined(ANNA_LANG_JA)
+extern const uint8_t annaJapaneseBitmap[];
+#endif
 
 namespace {
 constexpr int width = 466, center = 233;
@@ -30,7 +33,11 @@ constexpr int replyTop = 151;
 constexpr unsigned historyLimit = 10;
 constexpr uint32_t screenIdleMs = 30000;
 constexpr uint32_t wifiAttemptMs = 12000;
+#if defined(ANNA_LANG_JA)
+lgfx::PointerWrapper uiFontData(annaJapaneseBitmap);
+#else
 lgfx::PointerWrapper uiFontData(annaSmoothBitmap);
+#endif
 lgfx::VLWfont smoothFont;
 const lgfx::U8g2font bitmapFont(annaMicroHeiBitmap);
 const lgfx::IFont* uiFont = &bitmapFont;
