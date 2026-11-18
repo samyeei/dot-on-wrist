@@ -52,8 +52,8 @@ python3.12 -m venv .venv
 
 QR コードを読み取って、Telegram または WeChat のグループに参加できます。
 
-| Telegram | WeChat グループ「老钟 AI玩」 |
+| Telegram | WeChat |
 | --- | --- |
-| <img src="../media/telegram-qr.jpg" alt="Telegram QR code" width="220"> | <img src="../media/wechat-qr.jpg" alt="WeChat QR code" width="300"> |
+| <img src="../media/telegram-qr.jpg" alt="Telegram QR code" width="220"> | <img src="../media/wechat-qr.jpg" alt="WeChat QR code" width="220"> |
 
 WeChat の QR コードは 2026 年 11 月 25 日より前まで有効です。
