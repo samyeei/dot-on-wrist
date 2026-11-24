@@ -61,10 +61,6 @@ See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Community
 
-Scan a code to join the Telegram or WeChat group.
+Scan the QR code to join the Telegram group.
 
-| Telegram | WeChat |
-| --- | --- |
-| <img src="media/telegram-qr.jpg" alt="Telegram QR code" width="220"> | <img src="media/wechat-qr.jpg" alt="WeChat QR code" width="220"> |
-
-WeChat QR code valid before November 25, 2026.
+<img src="media/telegram-qr.jpg" alt="Telegram QR code" width="220">
