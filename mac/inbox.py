@@ -5,17 +5,30 @@ import sqlite3
 from contextlib import closing
 
 
+def _generated_hash_key(key):
+    return len(key) == 64 and not key.strip('0123456789abcdef')
+
+
 def end_of_history(previous, current):
     if not previous:
         return 0
     # Most observations share the previous tail. If a message was edited while
     # streaming and has no DOM ID, count the edited rows as part of history.
     for edited in range(min(2, len(previous) - 1) + 1):
+        if edited and not all(_generated_hash_key(key) for key in previous[len(previous) - edited:]):
+            continue
         tail = previous[:len(previous) - edited]
         for length in range(min(len(current), len(tail)), 0, -1):
             for offset in range(len(current) - length + 1):
                 if current[offset:offset + length] == tail[-length:]:
                     return min(len(current), offset + length + edited)
+    shared = 0
+    for previous_key, current_key in zip(previous, current):
+        if previous_key != current_key:
+            break
+        shared += 1
+    if shared:
+        return shared
     return None
 
 
